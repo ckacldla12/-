@@ -10,31 +10,38 @@
         font-size: 15pt;
         color: rgb(0, 0, 0);
         border: 3px solid rgb(0, 0, 0);
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(182, 182, 182);
         text-align: right;
     }
     #phon{
         font-size: 20pt;
         color: rgb(0, 0, 0);
         border: 5px solid rgb(0, 0, 0);
-        background-color: rgb(255, 255, 255); 
+        background-color: rgb(182, 182, 182); 
     }
     .btn{
         font-size: 15pt;
-        width: 10%;
+        width: 30%;
     }
     #btn1{
-        width: 10%;
+        width: 30%;
         font-size: 15pt;
         color: blue;        
     }
     #btn2{
-        width: 10%;
+        width: 30%;
         font-size: 15pt;
         color: red;
     }
     hr{
         border: 0px solid white;
+    }
+    div{
+        width: 275px;
+        height: 275px;
+        border: 5px solid rgb(255, 0, 149);
+        background-color: rgb(44, 32, 44);
+        padding: 10px;
     }
     </style>
     <script>
@@ -45,24 +52,32 @@
             document.querySelector("#amount").value = num;
     }
     window.onload = function() {
-        document.querySelector("#setAmount").addEventListener("click", getRandom);        
+        document.querySelector("#setAmount").addEventListener("click", getRandom);
     }    
     function touchNumberButton() {
         $("#phon").val($("#phon").val() + this.value);
     }    
     $(document).ready(function() {
         $(".btn").click(touchNumberButton);
+        $("#btn2").click(function(){
+            $("#phon").val("");
+        });
+        $("#btn1").click(function(){
+			var str = $("#phon").val();
+			$("#phon").val(str.substring(0, str.length - 1));
+		});
     });
     </script>
 </head>
 <body>
     <h1>마일리지 관리 프로그램</h1>    
     <hr>
+    <div>
     <input id="amount" type="text" size="8" readonly="true">
     <button id="setAmount">금액설정</button>
     <button id="load">저장</button>
     <hr>
-    <input type="text" id="phon" size="15" readonly="true">
+    <input type="text" id="phon" size="15" readonly="true" >
     <hr>
     <button class="btn" value="0">0</button>
     <button class="btn" value="1">1</button>
@@ -79,5 +94,6 @@
     <button class="btn" value="9">9</button>
     <button id="btn1">X</button>
     <button id="btn2">C</button>
+</div>
 </body>
 </html>
