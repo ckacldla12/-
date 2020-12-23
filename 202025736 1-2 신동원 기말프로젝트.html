@@ -67,6 +67,13 @@
 			$("#phon").val(str.substring(0, str.length - 1));
 		});
     });
+    $(function(){
+        $("#load").click(function(){
+            var amount = $("#amount").val();
+            var phon = $("#phon").val();
+            alert("금액 = " + amount + "전화번호" + phon);            
+        });
+    });
     </script>
 </head>
 <body>
